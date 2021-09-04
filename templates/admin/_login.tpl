@@ -4,7 +4,6 @@
         <div class="col-12 col-md-4 offset-md-4">
 
             <div class="mt-5">
-                <h3 class="mb-5"><a href="{$wwwRoot}">{$brand}</a></h3>
 
                 <form method="post" action="{$requestUri}" class="mb-5">
                     <div class="mb-3">

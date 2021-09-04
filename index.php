@@ -1,6 +1,6 @@
 <?php
 
-require '_init.php';
+require '_functions/_init.php';
 
 global $wwwRoot;
 

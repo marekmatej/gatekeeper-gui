@@ -1,9 +1,5 @@
 <form action="{$requestUri}" method="post">
 
-    {if isset($gate.id)}
-        <input type="hidden" name="gate[id]" value="{$gate.id}">
-    {/if}
-
     <div class="mb-3">
         <label for="gateName" class="form-label">Názov</label>
         <input type="text" class="form-control" id="gateName" name="gate[name]" value="{if isset($gate.name)}{$gate.name|escape}{/if}">

@@ -3,9 +3,9 @@
 {block name=content}
     <div class="container">
 
-        <h1>Zmazať užívateľa</h1>
+        <h1>Zmazať bránu</h1>
 
-        {include file="admin/_form_delete.tpl"}
+        {include file="admin/_forms/form_delete.tpl"}
 
     </div>
 {/block}

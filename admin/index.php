@@ -1,7 +1,7 @@
 <?php
 
-require '../_init.php';
-require '../_admin.php';
+require '../_functions/_init.php';
+require '../_functions/_admin.php';
 
 $data = [
     'active' => 'dashboard',

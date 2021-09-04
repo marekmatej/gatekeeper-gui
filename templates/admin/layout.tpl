@@ -21,6 +21,13 @@
 
     {else}
 
+      <div class="text-center mt-5">
+        {assign var=color value='#3273dc'}
+        {assign var=width value='150'}
+        {assign var=height value='150'}
+        {include file="gate.tpl"}
+      </div>
+
       {include file="admin/_login.tpl"}
 
     {/if}

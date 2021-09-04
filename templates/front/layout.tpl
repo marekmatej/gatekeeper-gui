@@ -13,6 +13,13 @@
 
   {include file="front/_navbar.tpl"}
 
+  <div class="text-center mt-5">
+      {assign var=color value='#3273dc'}
+      {assign var=width value='150'}
+      {assign var=height value='150'}
+      <a href="{$wwwRoot}">{include file="gate.tpl"}</a>
+  </div>
+
   {if isset($loggedUser) && $loggedUser}
 
     {block name=content}{/block}

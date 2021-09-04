@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="{$wwwRoot}">
-            {include file="dungeon.svg"}
+            {include file="gate.tpl"}
             {$brand}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

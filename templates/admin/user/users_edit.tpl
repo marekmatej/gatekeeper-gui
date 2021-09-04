@@ -5,7 +5,7 @@
 
         <h1>Upraviť užívateľa</h1>
 
-        {include file="admin/_form_user.tpl"}
+        {include file="admin/_forms/form_user.tpl"}
 
     </div>
 {/block}
