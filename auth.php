@@ -1,6 +1,6 @@
 <?php
 
-require '_init.php';
+require '_functions/_init.php';
 
 if (isset($_POST['pin'])) {
 
@@ -13,8 +13,10 @@ if (isset($_POST['pin'])) {
         $_SESSION['auth_time'] = time();
         $_SESSION['user'] = $user;
         $response['auth'] = true;
+        dbLog($user['id'], null, 'login success');
     } else {
         $response['auth'] = false;
+        dbLog(null, null, 'login failed');
     }
 
     header('Content-Type: application/json');

@@ -1,7 +1,9 @@
 <?php
 
-require '../../_init.php';
-require '../../_admin.php';
+require '../../_functions/_init.php';
+require '../../_functions/_admin.php';
+
+global $adminRoot;
 
 $gates = dbGetGates();
 
@@ -10,15 +12,22 @@ $data = [
     'gates' => $gates,
 ];
 
-if (isset($_POST['gate']) && is_array($_POST['gate'])) {
-
-    insertOrUpdateGate($_POST['gate']);
-    redirect();
-}
-
 if (isset($_GET['add']) && $_GET['add'] == '1') {
 
-    $template = 'admin/gates_add.tpl';
+    if (isset($_POST['gate'])) {
+
+        $insertData = [
+            'name' => $_POST['gate']['name'],
+            'open' => $_POST['gate']['open'],
+            'close' => $_POST['gate']['close'],
+            'active' => $_POST['gate']['active'],
+        ];
+
+        dbInsertGate($insertData);
+        redirect($adminRoot . 'gates/');
+    }
+
+    $template = 'admin/gate/gates_add.tpl';
 }
 elseif (isset($_GET['edit'])) {
 
@@ -26,32 +35,46 @@ elseif (isset($_GET['edit'])) {
 
     if (isset($gates[$id])) {
 
+        if (isset($_POST['gate'])) {
+
+            $updateData = [
+                'name' => $_POST['gate']['name'],
+                'open' => $_POST['gate']['open'],
+                'close' => $_POST['gate']['close'],
+                'active' => $_POST['gate']['active'],
+            ];
+
+            dbUpdateGate($id, $updateData);
+            redirect($adminRoot . 'gates/');
+        }
+
         $data['gate'] = $gates[$id];
     }
-    $template = 'admin/gates_edit.tpl';
+    $template = 'admin/gate/gates_edit.tpl';
 }
 elseif (isset($_GET['delete'])) {
 
-    $template = 'admin/gates_delete.tpl';
+    $id = (int) $_GET['delete'];
+
+    if (isset($gates[$id])) {
+
+        if (isset($_POST['item'])) {
+
+            if (isset($_POST['item']['really']) && $_POST['item']['really'] == '1') {
+
+                dbDeleteGate($id);
+            }
+
+            redirect($adminRoot . 'gates/');
+        }
+
+        $data['item'] = $gates[$id];
+    }
+
+    $template = 'admin/gate/gates_delete.tpl';
 }
 else {
-    $template = 'admin/gates.tpl';
+    $template = 'admin/gate/gates.tpl';
 }
 
 displayAdmin($template, $data);
-
-function insertOrUpdateGate($inputData)
-{
-    $id = isset($inputData['id']) ? (int) $inputData['id'] : null;
-
-    $data = [
-        'name' => $inputData['name'] ? trim($inputData['name']) : null,
-        'open' => trim($inputData['open']),
-        'close' => trim($inputData['close']),
-        'active' => 1,
-    ];
-
-    if ($id) {
-        $gate = dbGetGate($id);
-    }
-}

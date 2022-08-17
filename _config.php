@@ -10,3 +10,5 @@ $db = [
     'password' => '************',
     'database' => '************',
 ];
+
+require '_config_data.php';

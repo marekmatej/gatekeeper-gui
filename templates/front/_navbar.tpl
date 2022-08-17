@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="{$wwwRoot}">
-            {include file="dungeon.svg"}
+            {include file="gate.tpl"}
             {$brand}
         </a>
 

@@ -3,9 +3,9 @@
 {block name=content}
     <div class="container">
 
-        <h1>Pridať bránu</h1>
+        <h1>Upraviť bránu</h1>
 
-        {include file="admin/_form_gate.tpl"}
+        {include file="admin/_forms/form_gate.tpl"}
 
     </div>
 {/block}
