@@ -1,14 +1,14 @@
 <?php
 
 $brand = 'Gatekeeper';
-$wwwRoot = '/************/';
-$adminRoot = $wwwRoot . '************/';
+$wwwRoot = '/';
+$adminRoot = $wwwRoot . '/';
 
 $db = [
-    'hostname' => '************',
-    'username' => '************',
-    'password' => '************',
-    'database' => '************',
+    'hostname' => 'localhost',
+    'username' => 'gatekeeper',
+    'password' => 'gatekeeper',
+    'database' => 'gatekeeper',
 ];
 
 require '_config_data.php';
